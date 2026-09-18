@@ -56,35 +56,38 @@ routine project into one with an actual technical decision behind every layer.
 | Infra      | Docker, docker-compose, GitHub Actions, AWS EC2 + RDS |
 
 ## Folder Structure
+
+```
 ai-job-portal/
-├── backend/ Spring Boot app
-│ ├── src/main/java/com/jobportal/
-│ │ ├── config/ SecurityConfig, RedisConfig, OpenApiConfig
-│ │ ├── controller/ AuthController, JobController, ResumeController, ApplicationController
-│ │ ├── model/ User, Job, Resume, Application, Role
-│ │ ├── repository/ Spring Data JPA repositories
-│ │ ├── security/ JwtUtil, JwtAuthFilter, JwtAuthEntryPoint
-│ │ ├── service/ AuthService, JobService, ResumeService, ApplicationService, AiMatchService, LocalStorageService, S3Service
-│ │ ├── dto/ Request/response DTOs, PagedResult (cache-safe paging)
-│ │ └── exception/ Custom exceptions + global handler
-│ ├── src/main/resources/application.yml
-│ ├── src/test/java/... Context-load test
-│ ├── pom.xml
-│ └── Dockerfile
-├── frontend/ React app
-│ ├── src/
-│ │ ├── pages/ Login, Register, JobList, JobDetail, PostJob, Resumes, Dashboard, Home
-│ │ ├── components/ Navbar, ProtectedRoute, MatchScoreBadge
-│ │ ├── context/AuthContext.js
-│ │ └── services/api.js
-│ ├── package.json
-│ ├── nginx.conf
-│ └── Dockerfile
-├── .github/workflows/deploy.yml CI/CD: build+test → build frontend → SSH deploy to EC2
-├── docker-compose.yml app + MySQL + Redis
+├── backend/                      Spring Boot app
+│   ├── src/main/java/com/jobportal/
+│   │   ├── config/                SecurityConfig, RedisConfig, OpenApiConfig
+│   │   ├── controller/             AuthController, JobController, ResumeController, ApplicationController
+│   │   ├── model/                  User, Job, Resume, Application, Role
+│   │   ├── repository/             Spring Data JPA repositories
+│   │   ├── security/                JwtUtil, JwtAuthFilter, JwtAuthEntryPoint
+│   │   ├── service/                 AuthService, JobService, ResumeService, ApplicationService, AiMatchService, LocalStorageService, S3Service
+│   │   ├── dto/                     Request/response DTOs, PagedResult (cache-safe paging)
+│   │   └── exception/               Custom exceptions + global handler
+│   ├── src/main/resources/application.yml
+│   ├── src/test/java/...            Context-load test
+│   ├── pom.xml
+│   └── Dockerfile
+├── frontend/                     React app
+│   ├── src/
+│   │   ├── pages/                   Login, Register, JobList, JobDetail, PostJob, Resumes, Dashboard, Home
+│   │   ├── components/              Navbar, ProtectedRoute, MatchScoreBadge
+│   │   ├── context/AuthContext.js
+│   │   └── services/api.js
+│   ├── package.json
+│   ├── nginx.conf
+│   └── Dockerfile
+├── .github/workflows/deploy.yml  CI/CD: build+test → build frontend → SSH deploy to EC2
+├── docker-compose.yml            app + MySQL + Redis
 ├── .gitignore
 ├── .env.example
 └── README.md
+```
 
 
 
