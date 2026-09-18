@@ -1,0 +1,1071 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f6fa;
+  color: #222;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =====================================================
+   TOP NAVIGATION BAR
+   ===================================================== */
+
+.topbar {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  background: #1a1a2e;
+  color: #fff;
+  position: relative;
+  z-index: 1000;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+/* =====================================================
+   HAMBURGER BUTTON
+   ===================================================== */
+
+.hamburger-button {
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid #444a6b;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hamburger-button:hover {
+  background: #2f2f4f;
+}
+
+.hamburger-button span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* =====================================================
+   PROFILE AREA
+   ===================================================== */
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #444a6b;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-trigger:hover {
+  background: #2f2f4f;
+}
+
+.profile-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e94560;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.profile-name {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.caret {
+  font-size: 11px;
+  margin-left: 2px;
+}
+
+.guest-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.guest-actions a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.guest-actions a:hover {
+  color: #e94560;
+}
+
+/* =====================================================
+   PROFILE DROPDOWN SUPPORT
+   ===================================================== */
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 6px;
+  background: #fff;
+  color: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  min-width: 160px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f5;
+}
+
+.dropdown-btn {
+  font-family: inherit;
+}
+
+/* =====================================================
+   DARK OVERLAY
+   ===================================================== */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1100;
+}
+
+/* =====================================================
+   NAVIGATION DRAWER
+   ===================================================== */
+
+.navigation-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: #fff;
+  box-shadow: 6px 0 24px rgba(0, 0, 0, 0.18);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-105%);
+  transition: transform 0.25s ease;
+}
+
+.navigation-drawer-open {
+  transform: translateX(0);
+}
+
+/* =====================================================
+   DRAWER HEADER
+   ===================================================== */
+
+.drawer-header {
+  height: 64px;
+  padding: 0 18px;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-brand {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.drawer-close {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #444a6b;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.drawer-close:hover {
+  background: #2f2f4f;
+}
+
+/* =====================================================
+   DRAWER USER
+   ===================================================== */
+
+.drawer-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+
+.drawer-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e94560;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.drawer-user strong {
+  display: block;
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 3px;
+}
+
+.drawer-user small {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+/* =====================================================
+   DRAWER NAVIGATION
+   ===================================================== */
+
+.drawer-navigation {
+  flex: 1;
+  padding: 14px 10px;
+  overflow-y: auto;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  margin-bottom: 4px;
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.drawer-link:hover {
+  background: #f1f2f7;
+  color: #1a1a2e;
+}
+
+.drawer-link-active {
+  background: #e94560;
+  color: #fff;
+}
+
+.drawer-link-active:hover {
+  background: #e94560;
+  color: #fff;
+}
+
+.drawer-icon {
+  width: 24px;
+  text-align: center;
+  font-size: 17px;
+}
+
+/* =====================================================
+   DRAWER FOOTER
+   ===================================================== */
+
+.drawer-footer {
+  padding: 12px 10px 18px;
+  border-top: 1px solid #eee;
+}
+
+.drawer-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 14px;
+  background: transparent;
+  color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.drawer-logout:hover {
+  background: #fff1f0;
+}
+
+/* =====================================================
+   PAGE CONTENT
+   ===================================================== */
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.site-footer {
+  background: #1a1a2e;
+  color: #cfd2e6;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.footer-col p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  color: #b7bad6;
+}
+
+.footer-col a {
+  display: block;
+  color: #cfd2e6;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 12px;
+  padding: 14px;
+  border-top: 1px solid #2f2f4f;
+  color: #8b8fb5;
+}
+
+/* =====================================================
+   SHARED PAGE ELEMENTS
+   ===================================================== */
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.form-container {
+  max-width: 420px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2 {
+  margin-top: 0;
+}
+
+.form-container form,
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+select,
+textarea,
+button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e94560;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* =====================================================
+   HOME / HERO
+   ===================================================== */
+
+.hero {
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.btn {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #1a1a2e;
+  border: 2px solid #1a1a2e;
+}
+
+/* =====================================================
+   JOBS
+   ===================================================== */
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+}
+
+.search-bar button {
+  width: 120px;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.job-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.job-card h3 {
+  margin: 0 0 8px;
+}
+
+.job-type {
+  color: #888;
+  font-size: 13px;
+}
+
+.apply-box {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 320px;
+}
+
+/* =====================================================
+   RESUMES
+   ===================================================== */
+
+.resume-list {
+  list-style: none;
+  padding: 0;
+}
+
+.resume-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
+.dashboard-job {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.dashboard-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.applicant-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.applicant-table th,
+.applicant-table td {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.summary {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.accept-btn {
+  background: #2ecc71;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.accept-btn:hover {
+  background: #27ae60;
+}
+
+.reject-btn {
+  background: #e74c3c;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.reject-btn:hover {
+  background: #c0392b;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* =====================================================
+   STATUS
+   ===================================================== */
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-accepted {
+  background: #2ecc71;
+}
+
+.status-rejected {
+  background: #e74c3c;
+}
+
+.status-pending {
+  background: #f1c40f;
+  color: #333;
+}
+
+/* =====================================================
+   PROFILE
+   ===================================================== */
+
+.profile-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-card button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.profile-form {
+  margin: 0;
+  max-width: 500px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline-btn {
+  background: transparent;
+  color: #1a1a2e;
+  border: 1px solid #1a1a2e;
+}
+
+/* =====================================================
+   PROFESSIONAL HOME PAGE
+   ===================================================== */
+
+.home-page {
+  background: #f5f6fa;
+}
+
+/* Hero */
+
+.home-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #25254a 100%);
+  color: #fff;
+  padding: 90px 24px 100px;
+  text-align: center;
+}
+
+.home-hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.home-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: rgba(233, 69, 96, 0.15);
+  border: 1px solid rgba(233, 69, 96, 0.5);
+  color: #ff8da1;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.home-hero h1 {
+  font-size: 52px;
+  line-height: 1.12;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.home-hero h1 span {
+  color: #e94560;
+}
+
+.home-hero p {
+  max-width: 680px;
+  margin: 24px auto 0;
+  color: #d4d6e5;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.home-hero .hero-actions {
+  margin-top: 32px;
+}
+
+/* Hero Buttons */
+
+.home-primary-btn {
+  background: #e94560;
+  color: #fff;
+  border: 2px solid #e94560;
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.home-primary-btn:hover {
+  background: #d93652;
+  color: #fff;
+}
+
+.home-secondary-btn {
+  color: #fff;
+  border: 2px solid #fff;
+  background: transparent;
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.home-secondary-btn:hover {
+  background: #fff;
+  color: #1a1a2e;
+}
+
+/* Section Heading */
+
+.home-section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 38px;
+}
+
+.home-section-heading h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  color: #1a1a2e;
+}
+
+.home-section-heading p {
+  margin: 0;
+  color: #70738a;
+  font-size: 15px;
+}
+
+/* Features */
+
+.home-features {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 75px 28px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 30px 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  border-radius: 12px;
+  background: #fcecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+}
+
+.feature-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #70738a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* How It Works */
+
+.how-it-works {
+  background: #fff;
+  padding: 75px 28px;
+}
+
+.steps-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.step-number {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #1a1a2e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: #1a1a2e;
+}
+
+.step-card p {
+  margin: 0;
+  color: #70738a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Final CTA */
+
+.home-cta {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 75px 24px;
+  text-align: center;
+}
+
+.home-cta h2 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  color: #1a1a2e;
+}
+
+.home-cta p {
+  margin: 0 0 24px;
+  color: #70738a;
+  font-size: 15px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  /* Topbar */
+
+  .topbar {
+    height: 60px;
+    padding: 0 14px;
+  }
+
+  .topbar-left {
+    gap: 10px;
+  }
+
+  .topbar-brand {
+    font-size: 17px;
+  }
+
+  .profile-name {
+    display: none;
+  }
+
+  .profile-trigger {
+    padding: 5px 8px;
+  }
+
+  .navigation-drawer {
+    width: min(280px, 85vw);
+  }
+
+  /* General pages */
+
+  .page {
+    padding: 18px 14px;
+  }
+
+  .hero {
+    padding: 50px 18px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Search */
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  /* Dashboard */
+
+  .dashboard-job-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .job-actions {
+    flex-wrap: wrap;
+  }
+
+  .applicant-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Resumes */
+
+  .resume-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Home hero */
+
+  .home-hero {
+    padding: 65px 18px 75px;
+  }
+
+  .home-hero h1 {
+    font-size: 36px;
+  }
+
+  .home-hero p {
+    font-size: 15px;
+  }
+
+  /* Home features */
+
+  .feature-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-features,
+  .how-it-works {
+    padding: 55px 18px;
+  }
+
+  .home-section-heading h2,
+  .home-cta h2 {
+    font-size: 25px;
+  }
+}

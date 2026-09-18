@@ -1,0 +1,22 @@
+# Secrets — never commit real values, only .env.example
+.env
+.env.local
+
+# Backend (Maven)
+backend/target/
+backend/uploaded-resumes/
+*.class
+
+# Frontend (Node)
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Logs
+*.log

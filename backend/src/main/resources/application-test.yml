@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  data:
+    redis:
+      host: localhost
+      port: 6370
+jwt:
+  secret: test-secret-key-for-junit-tests-only-not-for-production-use-1234567890
+  expiration-ms: 3600000
